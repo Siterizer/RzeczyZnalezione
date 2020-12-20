@@ -35,7 +35,7 @@ public class InitialData {
                 .build());
 
         userRepository.save(User.builder()
-                .username("must1")
+                .username("admin")
                 .password("$2a$10$UPRK/oWCc3e.yTb5TLvGG.CdJP8aGP6jNJH.LCtvQhgvigse83VZG")//admin
                 .email("admin@gmail.com")
                 .phoneNumber("213702137")

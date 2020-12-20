@@ -1,6 +1,9 @@
 package pl.znalezione.rzeczy.controller;
 
+import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 import pl.znalezione.rzeczy.entities.user.User;
 import pl.znalezione.rzeczy.services.user.UserCrudService;
@@ -21,4 +24,8 @@ public class UserCrudController {
         return userService.getAllUsers();
     }
 
+    @GetMapping("/users/{name}")
+    public UserDetails getUserByName(@PathVariable String name) {
+        return userService.loadUserByUsername(name);
+    }
 }
